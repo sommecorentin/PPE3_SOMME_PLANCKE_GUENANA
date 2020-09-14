@@ -59,7 +59,8 @@ function chargerPage()
                     <div class='row h-100 justify-content-center align-items-center'>
                         <table class='table w-50'>
                             <thead>
-                                <td class='head-table-connexion text-white'>Je suis déjà client</td>
+                                <td class='head-table-connexion text-white'>Je suis déjà client
+																 </td>
                                 <td class='head-table-connexion text-white'>Je crée mon compte</td>
                             </thead>
                             <tbody>
