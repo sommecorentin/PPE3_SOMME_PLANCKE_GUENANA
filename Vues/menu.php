@@ -4,7 +4,7 @@
                 <ul class="dropdown spec-bot">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Les Films<span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Voir tous les films</a></li>
+                        <li><a href="index.php?vue=film&action=visualiser">Voir tous les films</a></li>
                     </ul>
                 </ul>    
             </li>

@@ -145,7 +145,7 @@ class Controleur
 			//CAS visualisation de tous les films-------------------------------------------------------------------------------------------------
 			case "visualiser" :
 				//ici il faut pouvoir visualiser l'ensemble des films 
-				require 'Vues/construction.php';
+				require 'Vues/film.php';
 				break;
 				
 			}
