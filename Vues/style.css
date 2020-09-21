@@ -1,0 +1,23 @@
+.test{
+  color: #fff;
+  height: 50px;
+  width: 50px;
+  background-image: url('netflix.png');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-duration: 5s;
+  animation-name: tourner;
+  transform: rotate(90deg);
+}
+
+@keyframes tourner {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(90deg);
+  }
+}
