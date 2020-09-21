@@ -36,8 +36,8 @@ class accesBD
 		$this->port = "";
 		$this->login = "root";
 		$this->passwd = "";
-		$this->base = "videoppe3";
-		$this->connexion();*/
+		$this->base = "videoppe3";*/
+		$this->connexion();
 
 		}
 
