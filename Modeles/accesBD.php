@@ -18,11 +18,11 @@ class accesBD
 	public function __construct()
 		{
 		// ORDI base SQL Server
-		/*$this->hote="PROFSIO\\SQLEXPRESS_2012";
+		$this->hote="127.0.0.1";
 		$this->port="";
-		$this->login="testcathy2";
-		$this->passwd="test";
-		$this->base="videoppe3";*/
+		$this->login="sa";
+		$this->passwd="btssio";
+		$this->base="PPE3_SOMME_PLANCKE_GUENANA";
 		
 		// ORDI DEV2
 		/*$this->hote = "localhost";
@@ -32,12 +32,12 @@ class accesBD
 		$this->base = "videoppe3";*/
 		
 		// local mysql
-		$this->hote = "localhost";
+		/*$this->hote = "localhost";
 		$this->port = "";
 		$this->login = "root";
 		$this->passwd = "";
 		$this->base = "videoppe3";
-		$this->connexion();
+		$this->connexion();*/
 		
 		}
 	
