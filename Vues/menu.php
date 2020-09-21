@@ -16,14 +16,6 @@
                     </ul>
                 </ul>
             </li>
-            <li class="nav-item active">
-                <ul class="dropdown">
-                    <button class="btn btn-secondary ml-auto dropdown-toggle" type="button" data-toggle="dropdown">Test<span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="Vues\telechargement.php">Télécharger</a></li>
-                    </ul>
-                </ul>
-            </li>
         </ul>
 
         <ul class="nav navbar-nav ml-auto pos-avatar justify-content-end">

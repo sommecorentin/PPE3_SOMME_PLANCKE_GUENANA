@@ -1,3 +1,1 @@
-<?php
- echo "<a href="" download="telechargement"></a>";
- ?>
+<a href="p" download='telechargement.png'>Télécharger</a>
