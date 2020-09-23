@@ -107,10 +107,10 @@ class Controleur
 				$prenomClient = $_POST['prenomClient'];
 				$emailClient = $_POST['emailClient'];
 				$dateAbonnementClient = $_POST['dateAbonnementClient'];
-				$login = $_POST['login'];
+				$loginClient = $_POST['login'];
 				$password = $_POST['password'];
 
-				$this->maVideotheque->ajouteUnClient($nomClient, $prenomClient, $emailClient, $dateAbonnementClient, $login, $password);
+				$this->maVideotheque->ajouteUnClient($nomClient, $prenomClient, $emailClient, $dateAbonnementClient, $loginClient, $password);
 
 				break;
 			//CAS verifier un utilisateur ------------------------------------------------------------------------------

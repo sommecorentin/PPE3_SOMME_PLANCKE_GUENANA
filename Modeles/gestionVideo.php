@@ -282,6 +282,10 @@ Class gestionVideo
 		{
 		return $this->tousLesClients->listeDesClients();
 		}
+		public function loginsDesClients()
+			{
+			return $this->tousLesClients->loginsDesClients();
+			}
 	public function listeLesFilms()
 		{
 		return $this->tousLesFilms->listeDesFilms();

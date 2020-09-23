@@ -38,6 +38,16 @@ Class conteneurClient
 		return $liste;
 		}
 
+		//METHODE RETOURNANT LES LOGINS DES CLIENTS-----------------------------------------------------------------------------------------
+		public function loginsDesClients()
+			{
+			//	$response = ["liste_login" => $tab_login]
+
+			foreach ($this->lesClients as $index => $value) {
+				$tab_login[$index] = $value->getLoginClient();
+			}
+		}
+
 		//METHODE RETOURNANT LA LISTE DES CLIENTS DANS UNE BALISE <SELECT>------------------------------------------------------------------
 	public function lesClientsAuFormatHTML()
 		{
@@ -81,7 +91,7 @@ Class conteneurClient
 		//echo $unLogin."<br/>";
 		//echo $unPassword."<br/>";
 		//initialisation d'un booléen (on part de l'hypothèse que le client n'existe pas)
-		$trouve=0;
+		$trouve=false;
 		//création d'un itérateur sur la collection lesClients
 		$iClient = $this->lesClients->getIterator();
 		//TQ on a pas trouvé le client et que l'on est pas arrivé au bout de la collection
@@ -99,7 +109,7 @@ Class conteneurClient
 			if (strcmp($unPassword,$testPassword)===0 && strcmp($unPassword,$testPassword)===0)
 				{
 				//maj du booléen
-				$trouve=1;
+				$trouve=true;
 				}
 			//SINON on passe au client suivant
 			else
