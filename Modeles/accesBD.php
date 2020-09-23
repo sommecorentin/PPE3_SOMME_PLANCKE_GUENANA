@@ -109,7 +109,7 @@ class accesBD
 		//définition de la requête SQL
 
 		$actif = 0;
-		
+
 		$requete->bindValue(1,$sonId);
 		$requete->bindValue(2,$unNomClient);
 		$requete->bindValue(3,$unPrenomClient);
