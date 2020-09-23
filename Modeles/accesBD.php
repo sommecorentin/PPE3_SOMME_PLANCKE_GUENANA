@@ -18,7 +18,7 @@ class accesBD
 	public function __construct()
 		{
 		// ORDI base SQL Server
-		/*$this->hote="127.0.0.1";
+		$this->hote="127.0.0.1";
 		$this->port="";
 		$this->login="sa";
 		$this->passwd="btssio";
@@ -32,11 +32,11 @@ class accesBD
 		$this->base = "videoppe3";*/
 
 		// local mysql
-		$this->hote = "localhost";
+		/*$this->hote = "localhost";
 		$this->port = "";
 		$this->login = "root";
 		$this->passwd = "";
-		$this->base = "videoppe3";
+		$this->base = "videoppe3";*/
 		$this->connexion();
 
 		}
@@ -50,12 +50,12 @@ class accesBD
         {
 			//echo "sqlsrv:server=$this->hote$this->port;Database=$this->base"." | ".$this->login." | ".$this->passwd;
 			// Pour SQL Server
-			//$this->conn = new PDO("sqlsrv:server=$this->hote$this->port;Database=$this->base", $this->login, $this->passwd);
-			//$this->conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+			$this->conn = new PDO("sqlsrv:server=$this->hote$this->port;Database=$this->base", $this->login, $this->passwd);
+			$this->conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 
             // Pour Mysql/MariaDB
-            $this->conn = new PDO("mysql:dbname=$this->base;host=$this->hote",$this->login, $this->passwd);
-            $this->boolConnexion = true;
+            //$this->conn = new PDO("mysql:dbname=$this->base;host=$this->hote",$this->login, $this->passwd);
+            //$this->boolConnexion = true;
         }
         catch(PDOException $e)
         {
