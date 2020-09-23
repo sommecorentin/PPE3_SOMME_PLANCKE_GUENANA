@@ -66,7 +66,7 @@ function chargerPage()
                             <tbody>
                                 <tr>
                                     <td class='td-table justify-content-center'>
-                                        <form action=index.php method=GET>
+                                        <form action=index.php method=POST>
                                             <input class='form-group' type='text' placeholder='Login' name='login'/><br>
                                             <input class='form-group' type='password' placeholder='Mot de passe' name='password'/><br>
                                             <input type='hidden' name='vue' value='compte'>
@@ -75,13 +75,15 @@ function chargerPage()
                                         </form>
                                     </td>
                                     <td class='justify-content-center td-table'>
-                                        <form href = 'index.php?vue=compte&action=nouveauLogin' method='post'>
+                                        <form href = 'index.php' method='post'>
                                             <input class='form-group' type='text' name='nomClient' placeholder='saisir votre nom'/><br>
                                             <input class='form-group' type='text' name='prenomClient' placeholder='Saisir votre prenom'/><br>
                                             <input class='form-group' type='text' name='emailClient' placeholder='Saisir votre email'/><br>
                                             <input class='form-group' type='date' name='dateAbonnementClient' placeholder='Date souhaitée d abonnement'/><br>
                                             <input class='form-group' type='text' name='login' placeholder='Saisir votre login'/><br>
                                             <input class='form-group' type='password' name='password' placeholder='Choisir un mot de passe'/><br>
+																						<input type='hidden' name=vue value=compte >
+																						<input type='hidden' name=action value=nouveauLogin >
                                             <input class='btn btn-secondary' type='submit' value='Accéder'/>
                                         </form>
                                     </td>

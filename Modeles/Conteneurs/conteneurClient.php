@@ -5,27 +5,29 @@ Class conteneurClient
 	{
 	//ATTRIBUTS PRIVES-------------------------------------------------------------------------
 	private $lesClients;
-	
+
 	//CONSTRUCTEUR-----------------------------------------------------------------------------
 	public function __construct()
 		{
 		$this->lesClients = new arrayObject();
 		}
-	
+
 	//METHODE AJOUTANT UN Client------------------------------------------------------------------------------
-	public function ajouteUnClient($unIdClient, $unNomClient, $unPrenomClient, $unEmailClient, $uneDateAbonnement, $unLoginClient, $unPwdClient)
+	public function ajouteUnClient($unNomClient, $unPrenomClient, $unEmailClient, $uneDateAbonnement, $unLoginClient, $unPwdClient)
 		{
-		$unClient = new client($unIdClient, $unNomClient, $unPrenomClient, $unEmailClient, $uneDateAbonnement,$unLoginClient, $unPwdClient);
+		$sonId = $this->nbClient() + 1;
+
+		$unClient = new client($sonId, $unNomClient, $unPrenomClient, $unEmailClient, $uneDateAbonnement,$unLoginClient, $unPwdClient);
 		$this->lesClients->append($unClient);
-			
+
 		}
-		
+
 	//METHODE RETOURNANT LE NOMBRE De clients-------------------------------------------------------------------------------
 	public function nbClient()
 		{
 		return $this->lesClients->count();
-		}	
-		
+		}
+
 	//METHODE RETOURNANT LA LISTE DES Clients-----------------------------------------------------------------------------------------
 	public function listeDesClients()
 		{
@@ -35,7 +37,7 @@ Class conteneurClient
 			}
 		return $liste;
 		}
-		
+
 		//METHODE RETOURNANT LA LISTE DES CLIENTS DANS UNE BALISE <SELECT>------------------------------------------------------------------
 	public function lesClientsAuFormatHTML()
 		{
@@ -46,9 +48,9 @@ Class conteneurClient
 			}
 		$liste = $liste."</SELECT>";
 		return $liste;
-		}		
+		}
 
-//METHODE RETOURNANT UN CLIENT A PARTIR DE SON NUMERO--------------------------------------------	
+//METHODE RETOURNANT UN CLIENT A PARTIR DE SON NUMERO--------------------------------------------
 	public function donneObjetClientDepuisNumero($unIdClient)
 		{
 		//initialisation d'un booléen (on part de l'hypothèse que le client n'existe pas)
@@ -66,14 +68,14 @@ Class conteneurClient
 				$trouve=true;
 				//sauvegarde du client courant
 				$leBonClient = $iClient->current();
-				
+
 				}
 			//SINON on passe au client suivant
 			else
 				$iClient->next();
 			}
 		return $leBonClient;
-		}		
+		}
 	public function verificationExistanceClient($unLogin, $unPassword)
 	{
 		//echo $unLogin."<br/>";
@@ -108,5 +110,5 @@ Class conteneurClient
 		return $trouve;
 	}
 	}
-	
-?> 
+
+?>

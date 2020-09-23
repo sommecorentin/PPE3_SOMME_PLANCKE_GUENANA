@@ -20,8 +20,8 @@ class accesBD
 		// ORDI base SQL Server
 		$this->hote="172.16.0.50";
 		$this->port="";
-		$this->login="ALT20PLANCKE";
-		$this->passwd="Cathycelia1312";
+		$this->login="ALT20GUENANA";
+		$this->passwd="Sarahgg1998!!";
 		$this->base="PPE3_SOMME_PLANCKE_GUENANA";
 
 		// ORDI DEV2
@@ -105,14 +105,28 @@ class accesBD
 		//génération automatique de l'identifiant
 		$sonId = $this->donneProchainIdentifiant("client","idClient");
 
-		$requete = $this->conn->prepare("INSERT INTO CLIENT (nomClient,prenomClient, emailClient, dateAbonnementClient,loginClient, pwdClient) VALUES (?,?,?,?,?,?)");
+		$requete = $this->conn->prepare("INSERT INTO CLIENT (idClient, nomClient,prenomClient, emailClient, dateAbonnementClient,login, pwd, actif) VALUES (?,?,?,?,?,?,?,?)");
 		//définition de la requête SQL
-		$requete->bindValue(1,$unNomClient);
-		$requete->bindValue(2,$unPrenomClient);
-		$requete->bindValue(3,$unEmailClient);
-		$requete->bindValue(4,$uneDateAbonnement);
-		$requete->bindValue(5,$unLoginClient);
-		$requete->bindValue(6,$unPwdClient);
+
+		$actif = 0;
+		
+		$requete->bindValue(1,$sonId);
+		$requete->bindValue(2,$unNomClient);
+		$requete->bindValue(3,$unPrenomClient);
+		$requete->bindValue(4,$unEmailClient);
+		$requete->bindValue(5,$uneDateAbonnement);
+		$requete->bindValue(6,$unLoginClient);
+		$requete->bindValue(7,$unPwdClient);
+		$requete->bindValue(8,$actif);
+
+		echo $sonId;
+		echo $unNomClient;
+		echo $unPrenomClient;
+		echo $unEmailClient;
+		echo $uneDateAbonnement;
+		echo $unLoginClient;
+		echo $unPwdClient;
+
 		//exécution de la requête SQL
 		if(!$requete->execute())
 		{
