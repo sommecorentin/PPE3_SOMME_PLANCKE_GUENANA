@@ -8,11 +8,10 @@ Class genre
 
 
 	//CONSTRUCTEUR-----------------------------------------------------------------------------
-	public function __construct($unId‪Genre, $unLibelleGenre,$unlienImage)
+	public function __construct($unId‪Genre,$unlienImage)
 		{
 		$this->lienImage = $unlienImage;
 		$this->id‪Genre = $unId‪Genre;
-		$this->libelleGenre = $unLibelleGenre;
 		}
 
 	//ACCESSEURS-------------------------------------------------------------------------------
