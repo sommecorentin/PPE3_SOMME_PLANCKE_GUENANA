@@ -1,4 +1,5 @@
-﻿<div class="navbar-collapse collapse w-100" id="navbar3">
+
+<div class="navbar-collapse collapse w-100" id="navbar3">
         <ul class="navbar-nav w-100">
             <li class="nav-item active">
                 <ul class="dropdown spec-bot">
@@ -20,7 +21,7 @@
                 <ul class="dropdown">
                     <button class="btn btn-secondary ml-auto dropdown-toggle" type="button" data-toggle="dropdown">Téléchargement<span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                        <li><?php include 'telechargement.php?idFichier='; ?></li>
+                        <li><?php $id=$abonneOuNon/*idFilm*/; include 'telechargement.php'; ?></li>
                     </ul>
                 </ul>
             </li>
@@ -38,6 +39,7 @@
 						<li><a href='index.php?vue=compte&action=visuEmprunt'>Visualiser mes Emprunts</a></li>
 						<li><a href='index.php?action=visualiser&vue=accueil'>Se déconnecter</a></li>
                     </ul>
+
                 </ul>
             </li>
         </ul>

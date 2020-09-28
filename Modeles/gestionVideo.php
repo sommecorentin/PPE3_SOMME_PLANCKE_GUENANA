@@ -348,6 +348,11 @@ Class gestionVideo
 		}
 
 
+		//fonction pour recuperer si le client est abonné
+		public function getClientAbonneOuNon()
+		{
+			return $this->maBD->requeteAbonneOuNon('SELECT actif FROM CLIENT WHERE login='.$_SESSION['loginClient']);
+		}
 	}
 
 ?>

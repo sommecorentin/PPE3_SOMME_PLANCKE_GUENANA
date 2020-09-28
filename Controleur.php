@@ -47,6 +47,7 @@ class Controleur
 		{
 		//appel de la vue du menu
 		require 'Vues/menu.php';
+
 		}
 
 
@@ -106,24 +107,24 @@ class Controleur
 				$prenomClient = $_POST['prenomClient'];
 				$emailClient = $_POST['emailClient'];
 				$dateAbonnementClient = $_POST['dateAbonnementClient'];
-				$loginClient = $_POST['login'];
+				$_SESSION['loginClient'] = $_POST['login'];
 				$password = $_POST['password'];
 
-				$this->maVideotheque->ajouteUnClient($nomClient, $prenomClient, $emailClient, $dateAbonnementClient, $loginClient, $password);
-				require 'Vues/menu.php';
-				echo $this->maVideotheque->listeLesGenres();
+				$this->maVideotheque->ajouteUnClient($nomClient, $prenomClient, $emailClient, $dateAbonnementClient, $_SESSION['loginClient'], $password);
+
 				break;
 			//CAS verifier un utilisateur ------------------------------------------------------------------------------
 			case 'verifLogin' :
 				// ici il faut pouvoir vérifier un login un nouveau utilisateur
 				//Je récupère les login et password saisi et je verifie leur existancerequire
 				//pour cela je verifie dans le conteneurClient via la gestion.
-				$unLogin=$_POST['login'];
+				$_SESSION['loginClient']=$_POST['login'];
 				$unPassword=$_POST['password'];
-				$resultat=$this->maVideotheque->verifLogin($unLogin, $unPassword);
+				$resultat=$this->maVideotheque->verifLogin($_SESSION['loginClient'], $unPassword);
 						//si le client existe alors j'affiche le menu et la page visuGenre.php
 						if($resultat==1)
 						{
+							$abonneOuNon=$this->maVideotheque->getClientAbonneOuNon();
 							require 'Vues/menu.php';
 							echo $this->maVideotheque->listeLesGenres();
 						}
