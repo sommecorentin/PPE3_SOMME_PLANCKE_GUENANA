@@ -167,6 +167,12 @@ Class gestionVideo
 		return $resultat;
 	}
 
+	public function verifExistanceLogin($login)
+	{
+		$resultat = $this->maBD->verifExistanceLogin($login);
+		return $resultat;
+	}
+
 
 
 

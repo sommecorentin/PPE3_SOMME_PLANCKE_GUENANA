@@ -103,38 +103,41 @@ class accesBD
 	public function insertClient($unNomClient, $unPrenomClient, $unEmailClient, $uneDateAbonnement,$unLoginClient,$unPwdClient)
 		{
 		//génération automatique de l'identifiant
-		$sonId = $this->donneProchainIdentifiant("client","idClient");
+		//$sonId = $this->donneProchainIdentifiant("client","idClient");
 
-		$requete = $this->conn->prepare("INSERT INTO CLIENT (idClient, nomClient,prenomClient, emailClient, dateAbonnementClient,login, pwd, actif) VALUES (?,?,?,?,?,?,?,?)");
+		$requete = $this->conn->prepare("INSERT INTO CLIENT (nomClient,prenomClient, emailClient, dateAbonnementClient,login, pwd, actif) VALUES (?,?,?,?,?,?,?)");
 		//définition de la requête SQL
 
-		$actif = 0;
 
-		$requete->bindValue(1,$sonId);
-		$requete->bindValue(2,$unNomClient);
-		$requete->bindValue(3,$unPrenomClient);
-		$requete->bindValue(4,$unEmailClient);
-		$requete->bindValue(5,$uneDateAbonnement);
-		$requete->bindValue(6,$unLoginClient);
-		$requete->bindValue(7,$unPwdClient);
-		$requete->bindValue(8,$actif);
 
-		echo $sonId;
+		//$requete->bindValue(1,$sonId);
+		$requete->bindValue(1,$unNomClient);
+		$requete->bindValue(2,$unPrenomClient);
+		$requete->bindValue(3,$unEmailClient);
+		$requete->bindValue(4,$uneDateAbonnement);
+		$requete->bindValue(5,$unLoginClient);
+		$requete->bindValue(6,$unPwdClient);
+		$requete->bindValue(7,0);
+
+		/*echo $sonId;
 		echo $unNomClient;
 		echo $unPrenomClient;
 		echo $unEmailClient;
 		echo $uneDateAbonnement;
 		echo $unLoginClient;
-		echo $unPwdClient;
+		echo $unPwdClient;*/
 
 		//exécution de la requête SQL
 		if(!$requete->execute())
 		{
 			die("Erreur dans insertClient : ".$requete->errorCode());
 		}
+		else {
+			echo " <br> </br> Vous avez bien été inscrit. ";
+		}
 
 		//retour de l'identifiant du nouveau tuple
-		return $sonId;
+		//return $sonId;
 		}
 	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	//---------------------------CREATION DE LA REQUETE D'INSERTION DES GENRES------------------------------------------------------------------------------------------------------------------------------------------------
@@ -413,6 +416,13 @@ class accesBD
 			die('Erreur sur donneProchainIdentifiantEpisode : '+$requete->errorCode());
 		}
 		}
+
+		public function verifExistanceLogin($login)
+		{
+			$requete = "SELECT COUNT(*) FROM client WHERE login = $login";
+			return $requete;
+		}
+
 	}
 
 ?>

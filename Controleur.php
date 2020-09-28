@@ -101,7 +101,6 @@ class Controleur
 			//CAS ajouter un utilisateur ------------------------------------------------------------------------------
 			case 'nouveauLogin' :
 				// ici il faut pouvoir recuperer un nouveau utilisateur
-				echo "wesh" ;
 
 				$nomClient = $_POST['nomClient'];
 				$prenomClient = $_POST['prenomClient'];
@@ -111,7 +110,8 @@ class Controleur
 				$password = $_POST['password'];
 
 				$this->maVideotheque->ajouteUnClient($nomClient, $prenomClient, $emailClient, $dateAbonnementClient, $loginClient, $password);
-
+				require 'Vues/menu.php';
+				echo $this->maVideotheque->listeLesGenres();
 				break;
 			//CAS verifier un utilisateur ------------------------------------------------------------------------------
 			case 'verifLogin' :
