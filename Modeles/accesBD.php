@@ -142,7 +142,7 @@ class accesBD
 	public function insertGenre($unLibelleGenre)
 		{
 		//génération automatique de l'identifiant
-		$sonId = $this->donneProchainIdentifiant("genre","idGenre");
+		$sonId = $this->donneProchainIdentifiant("genre");
 
 		//définition de la requête SQL
 		$requete = $this->conn->prepare("INSERT INTO genre (libelleGenre) VALUES (?)");

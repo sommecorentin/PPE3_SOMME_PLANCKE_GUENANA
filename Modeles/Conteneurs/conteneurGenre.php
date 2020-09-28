@@ -13,14 +13,13 @@ Class conteneurGenre
 		}
 
 	//METHODE AJOUTANT UN genre------------------------------------------------------------------------------
-	public function ajouteUnGenre($unId‪Genre, $unLibelleGenre)
+	public function ajouteUnGenre($lienGenre,$unId‪Genre, $unLibelleGenre)
 		{
-		$unGenre = new genre($unId‪Genre, $unLibelleGenre);
+		$unGenre = new genre($lienGenre,$unId‪Genre, $unLibelleGenre);
 		$this->lesGenres->append($unGenre);
-
 		}
 
-	//METHODE RETOURNANT LE NOMBRE de genres-------------------------------------------------------------------------------
+l	//METHODE RETOURNANT LE NOMBRE de genres-------------------------------------------------------------------------------
 	public function nbGenre()
 		{
 		return $this->lesGenres->count();
@@ -39,7 +38,7 @@ Class conteneurGenre
                             </thead>
                             <tbody>";
 		foreach ($this->lesGenres as $unGenre)
-			{	$liste = $liste.'<tr><td class="text-white td-table">'.$unGenre->getIdGenre().'</td><td class="text-white td-table">'.$unGenre->getLibelleGenre().'</td></tr>';
+			{	$liste = $liste.'<tr><td class="text-white td-table">'.$unGenre->getIdGenre().  '</td><td class="text-white td-table">'.$unGenre->getLibelleGenre().'</td></tr>';
 			}
 			$liste=$liste."</tbody></table></div></div>";
 		return $liste;
