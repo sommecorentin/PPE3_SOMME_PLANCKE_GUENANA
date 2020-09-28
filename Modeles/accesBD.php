@@ -18,11 +18,11 @@ class accesBD
 	public function __construct()
 		{
 		// ORDI base SQL Server
-		$this->hote="172.16.0.50";
+		/*$this->hote="172.16.0.50";
 		$this->port="";
 		$this->login="ALT20GUENANA";
 		$this->passwd="Sarahgg1998!!";
-		$this->base="PPE3_SOMME_PLANCKE_GUENANA";
+		$this->base="PPE3_SOMME_PLANCKE_GUENANA";*/
 
 		// ORDI DEV2
 		/*$this->hote = "localhost";
@@ -32,11 +32,11 @@ class accesBD
 		$this->base = "videoppe3";*/
 
 		// local mysql
-		/*$this->hote = "localhost";
+		$this->hote = "localhost";
 		$this->port = "";
 		$this->login = "root";
 		$this->passwd = "";
-		$this->base = "videoppe3";*/
+		$this->base = "videoppe3";
 		$this->connexion();
 
 		}
@@ -50,12 +50,12 @@ class accesBD
         {
 			//echo "sqlsrv:server=$this->hote$this->port;Database=$this->base"." | ".$this->login." | ".$this->passwd;
 			// Pour SQL Server
-			$this->conn = new PDO("sqlsrv:server=$this->hote$this->port;Database=$this->base", $this->login, $this->passwd);
-			$this->conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+			//$this->conn = new PDO("sqlsrv:server=$this->hote$this->port;Database=$this->base", $this->login, $this->passwd);
+			//$this->conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 
             // Pour Mysql/MariaDB
-            //$this->conn = new PDO("mysql:dbname=$this->base;host=$this->hote",$this->login, $this->passwd);
-            //$this->boolConnexion = true;
+            $this->conn = new PDO("mysql:dbname=$this->base;host=$this->hote",$this->login, $this->passwd);
+            $this->boolConnexion = true;
         }
         catch(PDOException $e)
         {
@@ -103,38 +103,41 @@ class accesBD
 	public function insertClient($unNomClient, $unPrenomClient, $unEmailClient, $uneDateAbonnement,$unLoginClient,$unPwdClient)
 		{
 		//génération automatique de l'identifiant
-		$sonId = $this->donneProchainIdentifiant("client","idClient");
+		//$sonId = $this->donneProchainIdentifiant("client","idClient");
 
-		$requete = $this->conn->prepare("INSERT INTO CLIENT (idClient, nomClient,prenomClient, emailClient, dateAbonnementClient,login, pwd, actif) VALUES (?,?,?,?,?,?,?,?)");
+		$requete = $this->conn->prepare("INSERT INTO CLIENT (nomClient,prenomClient, emailClient, dateAbonnementClient,login, pwd, actif) VALUES (?,?,?,?,?,?,?)");
 		//définition de la requête SQL
 
-		$actif = 0;
 
-		$requete->bindValue(1,$sonId);
-		$requete->bindValue(2,$unNomClient);
-		$requete->bindValue(3,$unPrenomClient);
-		$requete->bindValue(4,$unEmailClient);
-		$requete->bindValue(5,$uneDateAbonnement);
-		$requete->bindValue(6,$unLoginClient);
-		$requete->bindValue(7,$unPwdClient);
-		$requete->bindValue(8,$actif);
 
-		echo $sonId;
+		//$requete->bindValue(1,$sonId);
+		$requete->bindValue(1,$unNomClient);
+		$requete->bindValue(2,$unPrenomClient);
+		$requete->bindValue(3,$unEmailClient);
+		$requete->bindValue(4,$uneDateAbonnement);
+		$requete->bindValue(5,$unLoginClient);
+		$requete->bindValue(6,$unPwdClient);
+		$requete->bindValue(7,0);
+
+		/*echo $sonId;
 		echo $unNomClient;
 		echo $unPrenomClient;
 		echo $unEmailClient;
 		echo $uneDateAbonnement;
 		echo $unLoginClient;
-		echo $unPwdClient;
+		echo $unPwdClient;*/
 
 		//exécution de la requête SQL
 		if(!$requete->execute())
 		{
 			die("Erreur dans insertClient : ".$requete->errorCode());
 		}
+		else {
+			echo " <br> </br> Vous avez bien été inscrit. ";
+		}
 
 		//retour de l'identifiant du nouveau tuple
-		return $sonId;
+		//return $sonId;
 		}
 	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	//---------------------------CREATION DE LA REQUETE D'INSERTION DES GENRES------------------------------------------------------------------------------------------------------------------------------------------------
@@ -325,6 +328,22 @@ class accesBD
 			return $stringQuery.";";
 		}
 
+		//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		//-----------------------------EXECUTION D'UNE REQUETE avec where---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+			public function requeteAbonneOuNon($stringQuery)
+			{
+
+				$query=$this->conn->prepare($stringQuery);
+
+					if($query->execute())
+					{
+
+						$retour=$query->fetch();
+					}
+					echo $retour;
+					return $retour;
+			}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	//-----------------------------DONNE LE PROCHAIN INDENTIFIANT---------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -413,6 +432,13 @@ class accesBD
 			die('Erreur sur donneProchainIdentifiantEpisode : '+$requete->errorCode());
 		}
 		}
+
+		public function verifExistanceLogin($login)
+		{
+			$requete = "SELECT COUNT(*) FROM client WHERE login = $login";
+			return $requete;
+		}
+
 	}
 
 ?>

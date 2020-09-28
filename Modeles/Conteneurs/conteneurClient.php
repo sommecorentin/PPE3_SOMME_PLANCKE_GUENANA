@@ -15,9 +15,8 @@ Class conteneurClient
 	//METHODE AJOUTANT UN Client------------------------------------------------------------------------------
 	public function ajouteUnClient($unNomClient, $unPrenomClient, $unEmailClient, $uneDateAbonnement, $unLoginClient, $unPwdClient)
 		{
-		$sonId = $this->nbClient() + 1;
 
-		$unClient = new client($sonId, $unNomClient, $unPrenomClient, $unEmailClient, $uneDateAbonnement,$unLoginClient, $unPwdClient);
+		$unClient = new client($unNomClient, $unPrenomClient, $unEmailClient, $uneDateAbonnement,$unLoginClient, $unPwdClient);
 		$this->lesClients->append($unClient);
 
 		}
