@@ -69,7 +69,7 @@ Class gestionVideo
 
 		while ($nb<sizeof($resultat))
 			{
-				$this->tousLesGenres->ajouteUnGenre($resultat[$nb][0],$resultat[$nb][1]);
+				$this->tousLesGenres->ajouteUnGenre($resultat[$nb][0],$resultat[$nb][1],$resultat[$nb][2]);
 
 			$nb++;
 			}
@@ -100,6 +100,7 @@ Class gestionVideo
 				$leGenre = $leSupport->getLeGenreDeSupport();
 				$leGenre = $this->tousLesGenres->donneObjetGenreDepuisNumero($leGenre->getIdGenre());
 				$this->tousLesFilms->ajouteUnFilm($resultat[$nb][0],$leSupport->getTitreSupport(),$leSupport->getRealisateurSupport(),$leSupport->getImageSupport(),$leGenre,$resultat[$nb][1]);
+
 			$nb++;
 			}
 
@@ -351,7 +352,7 @@ Class gestionVideo
 		//fonction pour recuperer si le client est abonné
 		public function getClientAbonneOuNon()
 		{
-			return $this->maBD->requeteAbonneOuNon('SELECT actif FROM CLIENT WHERE login="'.$_SESSION['loginClient'].'";');
+			return $this->maBD->requeteAbonneOuNon('SELECT actif FROM CLIENT WHERE login=\''.$_SESSION['loginClient'].'\'');
 		}
 	}
 
