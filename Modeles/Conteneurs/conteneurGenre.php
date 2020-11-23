@@ -19,7 +19,7 @@ Class conteneurGenre
 		$this->lesGenres->append($unGenre);
 		}
 
-l	//METHODE RETOURNANT LE NOMBRE de genres-------------------------------------------------------------------------------
+	//METHODE RETOURNANT LE NOMBRE de genres-------------------------------------------------------------------------------
 	public function nbGenre()
 		{
 		return $this->lesGenres->count();
