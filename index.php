@@ -18,7 +18,7 @@ function chargerPage()
 		}
 	$monControleur->affichePiedPage();
 }
-	function premier_affichage()
+function premier_affichage()
 	{
 		/*echo "<div class = 'centrePage'>
 				<table border=3 align=center>

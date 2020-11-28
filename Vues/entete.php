@@ -12,10 +12,10 @@
 	<head>
 	<body>
         <nav class="navbar navbar-dark navbar-expand-md bg-faded justify-content-center">
-        <a href="/" class="navbar-brand"><img src="Images/logo.jpg" alt="Videotheque"><br/><span class="text-red text-small">Vos vidéos<br/>en un clic</span></a>
+        <a href="/" class="navbar-brand"><img src="Images/logo.png" alt="Videotheque"><br/><span class="text-red text-small">Vos vidéos en un clic</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar3">
             <span class="navbar-toggler-icon"></span>
         </button>
 
 				<link rel="stylesheet" href="Vues/style.css">
-    <div class="test"><h1></h1></div><h1 style="color=red">ETFLIX</h1>
+    <div class="test"><h1 style="color=red" >N</h1></div><h1 style="color=red">ETFLIX</h1>

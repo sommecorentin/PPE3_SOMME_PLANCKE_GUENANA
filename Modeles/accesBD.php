@@ -18,11 +18,17 @@ class accesBD
 	public function __construct()
 		{
 		// ORDI base SQL Server
-		$this->hote="172.16.0.50";
+		/*$this->hote="172.16.0.50";
 		$this->port="";
 		$this->login="ALT20GUENANA";
 		$this->passwd="!Sarah98!";
-		$this->base="PPE3_SOMME_PLANCKE_GUENANA";
+		$this->base="PPE3_SOMME_PLANCKE_GUENANA";*/
+
+		$this->hote="LAPTOP-CM618VKF\SQLEXPRESS";
+		$this->port="";
+		$this->login="connexionppe3";
+		$this->passwd="connexionppe3";
+		$this->base="videoppe3";
 
 		// ORDI DEV2
 		/*$this->hote = "localhost";
@@ -37,6 +43,7 @@ class accesBD
 		$this->login = "root";
 		$this->passwd = "";
 		$this->base = "videoppe3";*/
+
 		$this->connexion();
 
 		}
@@ -54,12 +61,12 @@ class accesBD
 			$this->conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 
             // Pour Mysql/MariaDB
-            //$this->conn = new PDO("mysql:dbname=$this->base;host=$this->hote",$this->login, $this->passwd);
-            //$this->boolConnexion = true;
+            /*$this->conn = new PDO("mysql:dbname=$this->base;host=$this->hote",$this->login, $this->passwd);
+            $this->boolConnexion = true;*/
         }
         catch(PDOException $e)
         {
-            die("Connection à la base de données échouée".$e->getMessage());
+            die("Connexion à la base de données échouée".$e->getMessage());
         }
 	}
 
@@ -76,6 +83,7 @@ class accesBD
 		//définition de la requête SQL
 		//On prépare la
 		$stringQuery = $this->specialCase($stringQuery,$uneTable);
+		echo $stringQuery;
 		$query = $this->conn->prepare($stringQuery);
 		//POUR chaque tuple retourné par la requête SQL
 		if($query->execute())
@@ -328,9 +336,9 @@ class accesBD
 			return $stringQuery.";";
 		}
 
-		//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		//-----------------------------EXECUTION D'UNE REQUETE avec where---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	//-----------------------------EXECUTION D'UNE REQUETE avec where---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 			public function requeteAbonneOuNon($stringQuery)
 			{
 
@@ -341,8 +349,8 @@ class accesBD
 
 						$retour=$query->fetch();
 					}
-					echo $retour;
-					return $retour;
+					
+					return $retour[0];
 			}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

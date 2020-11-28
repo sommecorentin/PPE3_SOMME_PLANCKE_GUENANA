@@ -20,8 +20,8 @@
             <li class="nav-item active">
                 <ul class="dropdown">
                     <button class="btn btn-secondary ml-auto dropdown-toggle" type="button" data-toggle="dropdown">Téléchargement<span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><?php $id=$abonneOuNon/*idFilm*/; include 'telechargement.php'; ?></li>
+                    <ul class="dropdown-menu">                        
+                        <li><?php $abonne=$abonneOuNon; $idFilm="policier.jpeg"; include 'telecharger.php'; ?></li>
                     </ul>
                 </ul>
             </li>
