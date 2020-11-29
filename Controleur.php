@@ -94,8 +94,16 @@ class Controleur
 			//CAS visualisation de mes informations-------------------------------------------------------------------------------------------------
 			case 'visualiser' :
 				//ici il faut pouvoir avoir accès au information de l'internaute connecté
+				require 'Vues/construction.php';
+				break;
+
+			//CAS visualisation de mes téléchargements-------------------------------------------------------------------------------------------------
+			case 'telechargement' :
+				//ici il faut pouvoir avoir accès au information de l'internaute connecté
+				require 'Vues/menu.php';
 				require 'Vues/telechargement.php';
 				break;
+
 
 			//CAS enregistrement d'une modification sur le compte------------------------------------------------------------------------------
 			case 'modifier' :

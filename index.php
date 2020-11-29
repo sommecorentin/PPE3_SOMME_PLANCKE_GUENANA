@@ -6,10 +6,21 @@ function chargerPage()
 {
 	$monControleur = new Controleur();
 	$monControleur->afficheEntete();
-		if(isset($_POST['login']))
+		if((isset($_POST['login']))||(isset($_SESSION['loginClient'])))
 		{
 				if ((isset($_POST['vue']))&& (isset($_POST['action'])))
-				{   $monControleur->affichePage($_POST['action'],$_POST['vue']);
+				{   
+					echo $_POST['vue'];
+					echo '	';
+					echo $_POST['action'];
+					$monControleur->affichePage($_POST['action'],$_POST['vue']);
+				}
+				if ((isset($_GET['vue']))&& (isset($_GET['action'])))
+				{   
+					echo $_GET['vue'];
+					echo '	';
+					echo $_GET['action'];
+					$monControleur->affichePage($_GET['action'],$_GET['vue']);
 				}
 		}
 		else

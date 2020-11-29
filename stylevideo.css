@@ -54,6 +54,7 @@ body
 .td-table
 {
     text-align: center;
+
 }
 
 .text-red
@@ -70,3 +71,27 @@ body
     width: 100px;
     height: 300px;
 }
+.test{
+    color: #fff;
+    height: 50px;
+    width: 50px; 
+    text-decoration-color: red;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-duration: 5s;
+    animation-name: tourner;
+    transform: rotate(90deg);
+  }
+  
+@keyframes tourner {
+from {
+    transform: rotate(0deg);
+}
+
+to {
+    transform: rotate(90deg);
+}
+}
+  
