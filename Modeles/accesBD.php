@@ -333,7 +333,7 @@ class accesBD
 		//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 			public function requeteAbonneOuNon($stringQuery)
 			{
-
+				
 				$query=$this->conn->prepare($stringQuery);
 
 					if($query->execute())
@@ -341,7 +341,7 @@ class accesBD
 
 						$retour=$query->fetch();
 					}
-					
+					echo $retour[0];
 					return $retour[0];
 			}
 

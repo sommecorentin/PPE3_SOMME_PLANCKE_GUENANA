@@ -10,16 +10,12 @@ function chargerPage()
 		{
 				if ((isset($_POST['vue']))&& (isset($_POST['action'])))
 				{   
-					echo $_POST['vue'];
-					echo '	';
-					echo $_POST['action'];
+					
 					$monControleur->affichePage($_POST['action'],$_POST['vue']);
 				}
 				if ((isset($_GET['vue']))&& (isset($_GET['action'])))
 				{   
-					echo $_GET['vue'];
-					echo '	';
-					echo $_GET['action'];
+					
 					$monControleur->affichePage($_GET['action'],$_GET['vue']);
 				}
 		}
