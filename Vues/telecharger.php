@@ -1,2 +1,9 @@
+<?php 
 
-<a href='' download='<?php echo $id; ?>.png'>Télécharger</a>
+if($abonne== 1)
+{
+    echo "<a href='../Images/".$idFilm."' download='". $idFilm ."'>Télécharger</a>";
+}
+
+?>
+
