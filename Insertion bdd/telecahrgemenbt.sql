@@ -2,9 +2,9 @@ create table telechargementFilm
 (	idFilm int,
 	idClient int,
 	laDate date,
-	constraint pk_telechargementFilmx primary key (idFilm,idClient),
-	constraint fk_telechargementSerie_idFilm foreign key (idFilm) references film(idFilm),
-	constraint fk_telechargementSerie_idClient foreign key (idClient) references client(idClient)
+	constraint pk_telechargementFilm primary key (idFilm,idClient),
+	constraint fk_telechargementFilm_idFilm foreign key (idFilm) references film(idFilm),
+	constraint fk_telechargementFilm_idClient foreign key (idClient) references client(idClient)
 	
   )  ;
 
