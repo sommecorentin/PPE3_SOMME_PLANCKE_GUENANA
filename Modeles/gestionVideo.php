@@ -181,10 +181,22 @@ Class gestionVideo
 //METHODE INSERANT UN CLIENT----------------------------------------------------------------------------------------------------------
 	public function ajouteUnClient($unNomClient, $unPrenomClient, $unEmailClient, $uneDateAbonnement, $login, $password)
 		{
-		//insertion du client dans la base de données
-		$sonNumero = $this->maBD->insertClient($unNomClient, $unPrenomClient, $unEmailClient, $uneDateAbonnement, $login, $password);
-		//instanciation du client et ajout de celui-ci dans la collection
-		$this->tousLesClients->ajouteUnClient($unNomClient, $unPrenomClient, $unEmailClient, $uneDateAbonnement, $login, $password);
+			if($this->maBD->verifExistanceLogin($login) > 0)
+			{
+				//insertion du client dans la base de données
+				$sonNumero = $this->maBD->insertClient($unNomClient, $unPrenomClient, $unEmailClient, $uneDateAbonnement, $login, $password);
+				//instanciation du client et ajout de celui-ci dans la collection
+				$this->tousLesClients->ajouteUnClient($unNomClient, $unPrenomClient, $unEmailClient, $uneDateAbonnement, $login, $password);
+
+				/*$message = "Bonjour ".$unPrenomClient." ! \n Bienvenue sur Zetflix. Merci de nous envoyer un chèque de 12 euros pour valider votre inscription. \nVotre inscirption au site sera validée sous 24h après la réception de ce dernier.";
+				$message=wordwrap($message, 70, "\r\n");
+
+				mail($unEmailClient, 'Bienvenue sur Zetflix !', $message);*/
+			}
+			else
+			{
+				echo "Attention : login déjà pris !";
+			}
 		}
 	//METHODE INSERANT UN FILM----------------------------------------------------------------------------------------------------------
 	public function ajouteUnFilm($unIdFilm,$unTitreFilm, $unRealisateurFilm, $unIdGenre,$uneDureeFilm)
