@@ -24,9 +24,9 @@ Class genre
 		{
 		return $this->libelleGenre;
 		}
-		public function getLibellelienImage()
+		public function getLienImageGenre()
 	  {
-			return $this->libellelienImage;
+			return $this->lienImage;
 	 	}
 
 	//SETTEUR------------------------------------------------------------

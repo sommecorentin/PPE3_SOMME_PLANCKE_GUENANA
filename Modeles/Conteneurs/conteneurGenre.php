@@ -30,17 +30,28 @@ Class conteneurGenre
 		{
 		$liste = "<div class='container h-100'>
                     <div class='row h-100 justify-content-center align-items-center'>
-                        <table class='table w-50'>
+                        <table >
                             <thead>
-                                <td class='head-table-genre text-white'>Identifiant genre</td>
-                                <td class='head-table-genre text-white'>Genre</td>
-																<td class='head-table-genre text-white'>Image</td>
+                             
                             </thead>
-                            <tbody>";
+							<tbody>";
+
+		
+		$liste = $liste.'<tr>';
 		foreach ($this->lesGenres as $unGenre)
-			{	$liste = $liste.'<tr><td class="text-white td-table">'.$unGenre->getIdGenre().  '</td><td class="text-white td-table">'.$unGenre->getLibelleGenre().'</td></tr>';
-			}
-			$liste=$liste."</tbody></table></div></div>";
+		{	
+			$liste = $liste.'<td><img height=300px class=imageGenre src="'.$unGenre->getLienImageGenre().'" ></td>';
+		}
+		$liste = $liste.'</tr><tr>';
+		foreach ($this->lesGenres as $unGenre)
+		{	
+			$liste = $liste.'<td class="text-white td-table">'.$unGenre->getLibelleGenre().'</td>';
+		}
+		$liste = $liste.'</tr>';
+
+
+		$liste=$liste."</tbody></table></div></div>";
+		
 		return $liste;
 		}
 

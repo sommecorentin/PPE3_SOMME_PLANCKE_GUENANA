@@ -20,8 +20,8 @@
             <li class="nav-item active">
                 <ul class="dropdown">
                     <button class="btn btn-secondary ml-auto dropdown-toggle" type="button" data-toggle="dropdown">Téléchargement<span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><?php $id=$abonneOuNon/*idFilm*/; include 'telechargement.php'; ?></li>
+                    <ul class="dropdown-menu">                        
+                        <li><?php $abonne=$abonneOuNon; $idFilm="policier.jpeg"; include 'telecharger.php'; ?></li>
                     </ul>
                 </ul>
             </li>
@@ -36,7 +36,7 @@
                         <!--<li><a href="index.php?vue=compte&action=verifLogin">Se connecter</a></li>-->
                         <li><a href="index.php?vue=compte&action=visualiser">Voir mon profil</a></li>
                         <li><a href='index.php?vue=compte&action=modifier'>Modifier mon profil</a></li>
-						<li><a href='index.php?vue=compte&action=visuEmprunt'>Visualiser mes Emprunts</a></li>
+						<li><a href='index.php?vue=compte&action=telechargement'>Mes Téléchargements</a></li>
 						<li><a href='index.php?action=visualiser&vue=accueil'>Se déconnecter</a></li>
                     </ul>
 
