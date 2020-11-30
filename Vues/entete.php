@@ -18,5 +18,5 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 		
-		<link rel="stylesheet" href="Vues/style.css" type="text/css"/>	
+			
     <div class="test"><h1 style="color:red" >N</h1></div><h1 style="color:red">ETFLIX</h1>

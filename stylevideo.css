@@ -66,9 +66,20 @@ body
 {
     font-size: 12px;
 }
+.divGenre
+{
+    position: relative;
+    width: 80%;
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10%;
+    margin-right: 10%
+   
+}
 .imageGenre
 {
-    width: 100px;
+    width: 200px;
     height: 300px;
 }
 .test{
