@@ -28,30 +28,30 @@ Class conteneurGenre
 	//METHODE RETOURNANT LA LISTE DES Genres-----------------------------------------------------------------------------------------
 	public function listeDesGenres()
 		{
-		$liste = "<div class='container h-100'>
+		$liste = "<div class='divGenre'>
                     <div class='row h-100 justify-content-center align-items-center'>
                         <table >
                             <thead>
-                             
+
                             </thead>
 							<tbody>";
 
-		
+
 		$liste = $liste.'<tr>';
 		foreach ($this->lesGenres as $unGenre)
-		{	
-			$liste = $liste.'<td><img height=300px class=imageGenre src="'.$unGenre->getLienImageGenre().'" ></td>';
+		{
+			$liste = $liste.'<td><img class=imageGenre src="'.$unGenre->getLienImageGenre().'" ></td>';
 		}
 		$liste = $liste.'</tr><tr>';
 		foreach ($this->lesGenres as $unGenre)
-		{	
-			$liste = $liste.'<td class="text-white td-table">'.$unGenre->getLibelleGenre().'</td>';
+		{
+			$liste = $liste.'<td class="text-white td-table">'.'<li><a href="index.php?vue=compte&action=telechargement">'.$unGenre->getLibelleGenre().'</a></li>'.'</td>';
 		}
 		$liste = $liste.'</tr>';
 
 
 		$liste=$liste."</tbody></table></div></div>";
-		
+
 		return $liste;
 		}
 
